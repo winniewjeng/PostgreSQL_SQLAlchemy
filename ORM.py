@@ -1,8 +1,10 @@
+#! /usr/bin/env python3
+
 import logging
+import pandas as pd
 import sqlalchemy
 import sqlalchemy.ext.declarative
 import sqlalchemy.orm
-import panda as pd
 
 user = "postgres"
 password = "python"
@@ -15,7 +17,7 @@ db_string = url.format(user, password, host, port, db)  # postgresql URL
 db = sqlalchemy.create_engine(db_string)  # create a database
 base = sqlalchemy.ext.declarative.declarative_base()  # create a base
 inspector = sqlalchemy.inspect(db)  # create an inspector
-session = sqlalchemy.orm.sessionmaker(db)
+Session = sqlalchemy.orm.sessionmaker(db)
 session = Session()
 base.metadata.create_all(db)  # 6-(c)-xi
 
