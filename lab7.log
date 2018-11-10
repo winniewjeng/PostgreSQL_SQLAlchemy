@@ -2093,3 +2093,6 @@ urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certifica
 11/09/2018 10:42:53 PM, Opened the JSON file!
 11/09/2018 10:43:28 PM, lab7.log opens. Program starts.
 11/09/2018 10:59:04 PM, lab7.log opens. Program starts.
+11/10/2018 10:07:06 AM, lab7.log opens. Program starts.
+11/10/2018 10:35:29 AM, lab7.log opens. Program starts.
+11/10/2018 10:35:29 AM, successfully get crew and director

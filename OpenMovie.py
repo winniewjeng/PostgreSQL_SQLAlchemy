@@ -110,29 +110,63 @@ class OpenMovie:
 
     # get the crew information from this movie’s Credits table
     def getCrew(self):
-        print("get crew!")
         # query the ORM session for this ORM Credits and filter
         # where the ORM Credits title is the movie’s title and
         # store this in movieCreditsQuery
-        moviesCreditsQuery = ORM.session.query(ORM.Credits.title).filter(ORM.Credits.title == self.title)
-        if self.title is moviesCreditsQuery:
-            logging.info(" movie credits title {} is queried from the db".format(self.title))
-        else:
-            return False, False
-        try:
-            crew = json.load(moviesCreditsQuery[0].crew)
-        except:
-            logging.error(" could not load the crew info from the db".format(self.title))
-            return False, False
 
-        try:
-            for key, value in crew.iteritems():
-                if "Director" is value:
-                    # return crew[value+1]
-                    return value+1, crew  # return the director's name and crew
-        except:
-            logging.error(" cannot query the director's info")
-            return False, False
+        self.title = "Avatar"  # testing purpose
+
+        moviesCreditsQuery = ORM.session.query(ORM.Credits.title, ORM.Credits.crew)
+        for x in moviesCreditsQuery:
+            # print(x[1])  # print crew
+            if x[0] == self.title:
+                try:
+                    crew_info = json.loads(x[1])
+                    # get the crew
+                    crew = crew_info[0]['name']
+                    # print(crew)
+                    try:
+                        # get the director
+                        for item in crew_info:
+                            # print(item['job'])
+                            if item['job'] == 'Director':
+                                director = item['name']
+                                logging.info(" successfully get crew and director")
+                                return director, crew
+                    except:
+                        logging.warning(" could not find the director from the db")
+                        return False, crew
+                except:
+                    logging.error(" could not json load the crew".format(self.title))
+                    return False, False
+
+            else:
+                logging.error(" could not find movie title {} from the db".format(self.title))
+                return False, False
+
+        # print("get crew!")
+        # # query the ORM session for this ORM Credits and filter
+        # # where the ORM Credits title is the movie’s title and
+        # # store this in movieCreditsQuery
+        # moviesCreditsQuery = ORM.session.query(ORM.Credits.title).filter(ORM.Credits.title == self.title)
+        # if self.title is moviesCreditsQuery:
+        #     logging.info(" movie credits title {} is queried from the db".format(self.title))
+        # else:
+        #     return False, False
+        # try:
+        #     crew = json.load(moviesCreditsQuery[0].crew)
+        # except:
+        #     logging.error(" could not load the crew info from the db".format(self.title))
+        #     return False, False
+        #
+        # try:
+        #     for key, value in crew.iteritems():
+        #         if "Director" is value:
+        #             # return crew[value+1]
+        #             return value+1, crew  # return the director's name and crew
+        # except:
+        #     logging.error(" cannot query the director's info")
+        #     return False, False
 
 
 
