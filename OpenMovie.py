@@ -9,7 +9,7 @@ import urllib.request
 import sqlalchemy
 # import sqlalchemy.orm
 # import sqlalchemy.ext.declarative
-# import json
+import json
 import ORM
 
 """
@@ -65,44 +65,52 @@ class OpenMovie:
 
     # user enters movie title in GUI, fxn gets the row from the instance's movie title
     def getMovieTitleData(self):
+
         # query the ORM session for the ORM Movies
+
+        # self.title = "Avatar"  # testing purpose
         result = ORM.session.query(ORM.Movies.title)
-        # if query works and ORM Movies title is equal to this class title, return result
-        if self.title is result:
-            logging.info("  movie title {} is queried from the db".format(self.title))
-            return result
-        else:
-            logging.error(" movie title {} is not found in the db".format(self.title))
-            return False
+        for x in result:
+            # print(x)
+            x = re.sub(r'[\W_]+', '', str(x))
+            # if query works and ORM Movies title is equal to this class title, return resultx
+            if x == self.title:
+                logging.info("  movie title {} is queried from the db".format(self.title))
+                result = x
+                return result
+            else:
+                logging.error(" movie title {} is not found in the db".format(self.title))
+                return False
 
     # get the cast information from this movie’s credits table
     def getCast(self):
+        
         # query the ORM session for the ORM Credits table
         # filter it on the ORM Credits title matching this class’s title
         # store the results in movieCreditsQuery
-        moviesCreditsQuery = ORM.session.query(ORM.Credits.title).filter(ORM.Credits.title == self.title)  # filter on credit title matching movie title
-        if self.title is moviesCreditsQuery:
-            logging.info(" movie credits title {} is queried from the db".format(self.title))
 
-        else:
-            logging.error(" movie credits title {} is not found in the db".format(self.title))
-            return False
+        # self.title = "Iron Man"  # testing purpose
+        moviesCreditsQuery = ORM.session.query(ORM.Credits.title, ORM.Credits.cast)
+        for x in moviesCreditsQuery:
+            if x[0] == self.title:
+                logging.info(" movie credits title {} is queried from the db".format(self.title))
+                # print(x[1])
+                try:
+                    # json loads the cast from 0th element of movieCreditsQuery and store result in cast
+                    cast_info = json.loads(x[1])
+                    cast = cast_info[0]['name']
+                    return cast
+                except:
+                    logging.error(" could not load the cast info from the db".format(self.title))
+                    return False
+            else:
+                logging.error(" movie credits title {} is not found in the db".format(self.title))
+                return False
 
-        # json loads the cast from 0th element of movieCreditsQuery and store result in cast
-        try:
-            # json_data = json.load(MoviesCreditsQuery)
-            # dubious of this statemnet
-            cast = json.load(moviesCreditsQuery[0].cast)
-            # for x in json_data['cast']:
-            #     cast = ORM.Credits()
-            #     cast.cast = x[0]
-        except:
-            logging.error(" could not load the cast info from the db".format(self.title))
-            return False
-        return cast
 
     # get the crew information from this movie’s Credits table
     def getCrew(self):
+        print("get crew!")
         # query the ORM session for this ORM Credits and filter
         # where the ORM Credits title is the movie’s title and
         # store this in movieCreditsQuery

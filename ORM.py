@@ -19,7 +19,6 @@ base = sqlalchemy.ext.declarative.declarative_base()  # create a base
 inspector = sqlalchemy.inspect(db)  # create an inspector
 Session = sqlalchemy.orm.sessionmaker(db)
 session = Session()
-base.metadata.create_all(db)  # 6-(c)-xi
 
 
 # returns true if a table is already in the database and returns false if not
@@ -63,3 +62,8 @@ class Credits(base):
     title = sqlalchemy.Column(sqlalchemy.String)
     cast = sqlalchemy.Column(sqlalchemy.String)
     crew = sqlalchemy.Column(sqlalchemy.String)
+
+
+if __name__ == "__main__":
+    base.metadata.create_all(db)  # 6-(c)-xi
+

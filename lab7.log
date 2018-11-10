@@ -2065,3 +2065,31 @@ urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certifica
 11/09/2018 10:19:13 PM, getPoster() method is called
 11/09/2018 10:19:13 PM, Poster's name: Iron Man
 11/09/2018 10:19:13 PM, Poster's URL https://images-na.ssl-images-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg
+11/09/2018 10:20:04 PM, lab7.log opens. Program starts.
+11/09/2018 10:20:04 PM, Opened the JSON file!
+11/09/2018 10:20:08 PM, getPoster() method is called
+11/09/2018 10:20:08 PM, Poster's name: Iron Man
+11/09/2018 10:20:08 PM, Poster's URL https://images-na.ssl-images-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg
+11/09/2018 10:20:18 PM, getPoster() method is called
+11/09/2018 10:20:18 PM, Poster's name: Avatar
+11/09/2018 10:20:18 PM, Poster's URL https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg
+11/09/2018 10:21:26 PM, lab7.log opens. Program starts.
+11/09/2018 10:21:26 PM, Opened the JSON file!
+11/09/2018 10:21:30 PM, getPoster() method is called
+11/09/2018 10:21:30 PM, Poster's name: Iron Man
+11/09/2018 10:21:30 PM, Poster's URL https://images-na.ssl-images-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg
+11/09/2018 10:21:36 PM, getPoster() method is called
+11/09/2018 10:21:36 PM, Poster's name: Iron Man
+11/09/2018 10:21:36 PM, Poster's URL https://images-na.ssl-images-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg
+11/09/2018 10:21:37 PM, getPoster() method is called
+11/09/2018 10:21:37 PM, Poster's name: Iron Man
+11/09/2018 10:21:37 PM, Poster's URL https://images-na.ssl-images-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg
+11/09/2018 10:21:40 PM, getPoster() method is called
+11/09/2018 10:21:40 PM, Poster's name: Avatar
+11/09/2018 10:21:40 PM, Poster's URL https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg
+11/09/2018 10:42:27 PM, lab7.log opens. Program starts.
+11/09/2018 10:42:27 PM, Opened the JSON file!
+11/09/2018 10:42:53 PM, lab7.log opens. Program starts.
+11/09/2018 10:42:53 PM, Opened the JSON file!
+11/09/2018 10:43:28 PM, lab7.log opens. Program starts.
+11/09/2018 10:59:04 PM, lab7.log opens. Program starts.

@@ -35,7 +35,7 @@ if __name__ == "__main__":
         log_file_name = "default.log"
 
     # create a logging basiConfig
-    logging.basicConfig(filename=log_file_name, level=logging.DEBUG,
+    logging.basicConfig(filename=log_file_name, level=logging.INFO,
                         format='%(asctime)s,%(message)s',
                         datefmt='%m/%d/%Y %I:%M:%S %p')
 

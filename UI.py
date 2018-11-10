@@ -4,6 +4,7 @@ import OpenMovie
 import json
 import logging
 import sys
+import sqlalchemy
 
 """
 File: Jeng_Winnie_Lab6.py
@@ -52,9 +53,43 @@ class UI(PyQt5.QtWidgets.QMainWindow):
         # read the movieTitle from enterMovieLineEdit with text() method
         self.movieTitle = self.centralWidget.enterMovieLineEdit.text()
 
+        # create an instance of posterURL from the movies.json data structure
+        contents = open('movies.json', 'r')
+        data = json.load(contents)
+        for i in data['movie_posters']:
+            if i == self.movieTitle:
+                # i is self.movieTite and data['movie_posters'][i] is URL
+                openMovie = OpenMovie.OpenMovie(self.movieTitle, data['movie_posters'][i])
+            else:
+                # create an instance of openMovie from the movies.json data structure
+                logging.error(" cannot find the poster URL")
+                openMovie = OpenMovie.OpenMovie(self.movieTitle, posterURL=None)
+
+        # store in movieTitleQuery the results of the getMovieTitleData method call from our openMovie instance.
+        movieTitleQuery = openMovie.getMovieTitleData()
+        if movieTitleQuery is False:
+            return
+
+
+
+        # """UNCLEAR"""
+        # posterURL =
+        # #  The keys of ”movie posters” and the movieTitle
+        # # you just read will give you the URL
+        #
+        # # store in movieTitleQuery the results of the getMovieTitleData method call from our openMovie instance.
+        # movieTitleQuery = openMovie.getMovieTitleData()
+        #
+        # if movieTitleQuery is False:
+        #     return
+        #
+        # cast = openMovie.getCast()
+        # crew = openMovie.getCrew()  # get director and crew
+
+
+        """" comment out the code that gets posterURL from json, as we're now gettign the code from the db"""
         print(self.movieTitle)
-        # print("Button click %d" % self.count)
-        # print(str(self.moviesJSON))
+
         """The rest below is all very ambiguous"""
 
         try:
