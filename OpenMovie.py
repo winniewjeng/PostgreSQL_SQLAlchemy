@@ -84,7 +84,7 @@ class OpenMovie:
 
     # get the cast information from this movie’s credits table
     def getCast(self):
-        
+
         # query the ORM session for the ORM Credits table
         # filter it on the ORM Credits title matching this class’s title
         # store the results in movieCreditsQuery
